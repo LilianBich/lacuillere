@@ -1,0 +1,44 @@
+<style>
+  #wrapper {
+    width: 300px;
+    margin: auto;
+    margin-top: 80px;
+    padding: 30px 10px;
+    background-color: #EAEAEA;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: 15px 15px 50px grey;
+  }
+</style>
+<div id="wrapper">
+  <table>
+      <tr>
+        <td>
+          <p>restaurant id is <%= @restaurant.id %></p>
+          <p>Restaurant: <strong> <%= @restaurant.name %></strong></p>
+          <p>Address: <%= @restaurant.address %></p>
+          <p>Category: <%= @restaurant.category %></p>
+          <p>Phone: <%= @restaurant.phone %></p>
+        </td>
+      </tr>
+  </table>
+  <table>
+    <% @restaurant.reviews.each do |review| %>
+      <tr>
+        <td>
+          <!-- I remove the 2 first caractere of the title beacause their is some markdown in it -->
+          <p><%= review.content %></p>
+        </td>
+        <td>
+          <!-- I remove the 2 first caractere of the title beacause their is some markdown in it -->
+          <p>Its rating is  <%= review.rating %></p>
+        </td>
+      </tr>
+    <% end %>
+    <tr><%= link_to "Add a review", new_restaurant_review_path(@restaurant) %></tr>
+  </table>
+    <br>
+
+  <hr>
+  <%= link_to "<= back to Restaurant list", restaurants_path %>
+</div>

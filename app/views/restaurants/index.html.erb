@@ -1,0 +1,40 @@
+<style>
+  #wrapper {
+    width: 800px;
+    margin: auto;
+    margin-top: 80px;
+    padding: 30px 30px;
+    background-color: #EAEAEA;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: 15px 15px 50px grey;
+  }
+
+</style>
+
+
+<div id="wrapper">
+  <h1 class="text-center">Lacuillere's restaurants</h1>
+
+  <% @restaurants.each do |restaurant| %>
+    <table>
+      <tr>
+        <td>
+          <!-- I remove the 2 first caractere of the title beacause their is some markdown in it -->
+          <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+        </td>
+      </tr>
+    </table>
+
+    <br>
+  <% end %>
+
+
+  <br>
+  <div class="text-right">
+    <%= link_to new_restaurant_path do %>
+    <i class="fa fa-plus"></i>
+    <% end%>
+  </div>
+
+</div>

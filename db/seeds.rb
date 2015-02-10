@@ -5,37 +5,42 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Review.destroy_all
+Restaurant.destroy_all
+  restaurant1 = Restaurant.new
+  restaurant1.name = "La tour d'Argent"
+  restaurant1.address = "1 rue du bonheur"
+  restaurant1.category = "french"
+  restaurant1.phone = "+1 78 54 23 54"
+  restaurant1.save
 
-  restaurant = Restaurant.new
-  restaurant.name = "La tour d'Argent"
-  restaurant.address = "1 rue du bonheur"
-  restaurant.category = "french"
-  restaurant.phone = "+1 78 54 23 54"
-  restaurant.save
+  restaurant2 = Restaurant.new
+  restaurant2.name = "Chez gladice"
+  restaurant2.address = "5 rue du Paris"
+  restaurant2.category = "french"
+  restaurant2.phone = "+1 34 54 83 57"
+  restaurant2.save
 
-  restaurant.name = "Chez gladice"
-  restaurant.address = "5 rue du Paris"
-  restaurant.category = "french"
-  restaurant.phone = "+1 34 54 83 57"
-  restaurant.save
+  restaurant3 = Restaurant.new
+  restaurant3.name = "Chez Li "
+  restaurant3.address = "34 rue du bonheur"
+  restaurant3.category = "chinese"
+  restaurant3.phone = "+1 01 56 73 34"
+  restaurant3.save
 
-  restaurant.name = "Chez Li "
-  restaurant.address = "34 rue du bonheur"
-  restaurant.category = "chinese"
-  restaurant.phone = "+1 01 56 73 34"
-  restaurant.save
+  restaurant4 = Restaurant.new
+  restaurant4.name = "La bonne frite"
+  restaurant4.address = "23 rue du bonheur"
+  restaurant4.category = "belgian"
+  restaurant4.phone = "+1 48 38 93 04"
+  restaurant4.save
 
-  restaurant.name = "La bonne frite"
-  restaurant.address = "23 rue du bonheur"
-  restaurant.category = "belgian"
-  restaurant.phone = "+1 48 38 93 04"
-  restaurant.save
-
-  restaurant.name = "MaaaaQué"
-  restaurant.address = "51 rue du bonheur"
-  restaurant.category = "italian"
-  restaurant.phone = "+1 36 77 23 74"
-  restaurant.save
+  restaurant5 = Restaurant.new
+  restaurant5.name = "MaaaaQué"
+  restaurant5.address = "51 rue du bonheur"
+  restaurant5.category = "italian"
+  restaurant5.phone = "+1 36 77 23 74"
+  restaurant5.save
 
 
 
