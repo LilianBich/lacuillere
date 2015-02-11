@@ -1,5 +1,4 @@
-<style>
-  #wrapper {
+<!-- #wrapper {
     width: 800px;
     margin: auto;
     margin-top: 80px;
@@ -8,10 +7,7 @@
     border: 2px solid black;
     border-radius: 4px;
     box-shadow: 15px 15px 50px grey;
-  }
-
-</style>
-
+  } -->
 
 <div id="wrapper">
   <h1 class="text-center">Lacuillere's restaurants</h1>
@@ -21,13 +17,15 @@
       <tr>
         <td>
           <!-- I remove the 2 first caractere of the title beacause their is some markdown in it -->
-          <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+          <p><%= link_to restaurant.name, restaurant_path(restaurant) %><p>
         </td>
       </tr>
     </table>
 
     <br>
   <% end %>
+
+
 
 
   <br>

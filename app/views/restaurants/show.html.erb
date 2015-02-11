@@ -1,27 +1,20 @@
-<style>
-  #wrapper {
-    width: 300px;
-    margin: auto;
-    margin-top: 80px;
-    padding: 30px 10px;
-    background-color: #EAEAEA;
-    border: 2px solid black;
-    border-radius: 4px;
-    box-shadow: 15px 15px 50px grey;
-  }
-</style>
+<% content_for(:title) do %>
+  <%= @restaurant.name %> is on La Cuillere
+<% end %>
 <div id="wrapper">
   <table>
       <tr>
         <td>
-          <p>restaurant id is <%= @restaurant.id %></p>
-          <p>Restaurant: <strong> <%= @restaurant.name %></strong></p>
+          <h1>Restaurant: <strong> <%= @restaurant.name %></strong></h1>
           <p>Address: <%= @restaurant.address %></p>
           <p>Category: <%= @restaurant.category %></p>
-          <p>Phone: <%= @restaurant.phone %></p>
+          <p>Phone: <%= @restaurant.phone_number %></p>
         </td>
       </tr>
   </table>
+  <h2>Restaurant reviews</h2>
+  <p>Avergae rating : <%=Review.where(restaurant_id: @restaurant.id).average("rating").round(1) if Review.where(restaurant_id: @restaurant.id).average("rating")%></p>
+
   <table>
     <% @restaurant.reviews.each do |review| %>
       <tr>
@@ -35,9 +28,21 @@
         </td>
       </tr>
     <% end %>
-    <tr><%= link_to "Add a review", new_restaurant_review_path(@restaurant) %></tr>
   </table>
     <br>
+    <h3 style="width:100%; text-align:center;">Add your on review</h3>
+    <%@review = Review.new%>
+    <%= form_for ([@restaurant, @review]) do |f| %>
+      <%= f.label :content %>
+      <%= f.text_field :content, class: "form-control" %>
+      <%  # text_area(:restaurant, :content, cols: 107, rows: 10) %>
+      <%= f.label :rating %>
+      <%= f.select :rating, [["1", 1], ["2", 1], ["3", 3], ["4", 4], ["5", 5]] %>
+      <br>
+      <div class="text-center">
+        <%= f.submit 'All good', class: "text-center btn btn-success" %>
+      </div>
+    <% end %>
 
   <hr>
   <%= link_to "<= back to Restaurant list", restaurants_path %>
